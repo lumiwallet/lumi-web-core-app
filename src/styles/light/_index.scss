@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600');
+
+@import 'grid';
+@import 'text';
+@import 'ui';
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  color: $color-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

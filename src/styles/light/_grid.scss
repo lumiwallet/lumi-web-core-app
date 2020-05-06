@@ -1,0 +1,49 @@
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--s-margin {
+    margin-bottom: 60px;
+  }
+
+  &--l-margin {
+    margin-bottom: 70px;
+  }
+
+  &__head {
+    margin-bottom: 24px;
+  }
+}
+
+.group-row {
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--m-margin {
+    margin-bottom: 24px;
+  }
+}
+
+.tx-page {
+  max-width: 560px;
+}
+
+.add-input {
+  &__row {
+    margin-bottom: 24px;
+  }
+}

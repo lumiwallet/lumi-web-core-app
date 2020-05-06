@@ -1,0 +1,116 @@
+button, input, textarea {
+  font-weight: $base-font-weight;
+  border: none;
+  outline: none;
+}
+
+button {
+  width: 200px;
+  line-height: 40px;
+  padding: 1px 8px 3px;
+  border-radius: $base-border-radius;
+  background-color: $color-blue;
+  font-size: 20px;
+  color: $color-white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0 15px;
+  line-height: 42px;
+  border-radius: $base-border-radius;
+  background-color: $color-white;
+  color: $color-black;
+  border: 1px solid $color-border;
+
+  @include placeholder {
+    color: $color-grey-text;
+  }
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: 64px;
+  padding: 11px 18px 11px 15px;
+  font-size: $base-font-size;
+  line-height: 21px;
+  border-radius: $base-border-radius;
+  background-color: $color-white;
+  color: $color-black;
+  border: 1px solid $color-border;
+
+  &:focus {
+    border-color: $color-light-blue;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.sm-input {
+  width: 100%;
+  padding: 0 8px;
+  line-height: 28px;
+  border-radius: $base-border-radius;
+  background-color: $color-white;
+  // color: $color-btn;
+  // border: 1px solid rgba($color-btn, 0.3);
+}
+
+//.file {
+//  position: relative;
+//
+//  input {
+//    height: 1px;
+//    overflow: hidden;
+//    opacity: 0;
+//    padding: 0;
+//    position: absolute;
+//    white-space: nowrap;
+//    width: 1px;
+//
+//    &:focus + label,
+//    & + label:hover {
+//      opacity: 0.9;
+//    }
+//  }
+//
+//  label {
+//    display: block;
+//    line-height: 40px;
+//    border-radius: $base-border-radius;
+//    color: $color-white;
+//    background-color: $color-btn;
+//    cursor: pointer;
+//    padding: 0 10px;
+//    text-align: center;
+//  }
+//}
+
+.sm-btn {
+  padding: 2px 10px;
+  //border: 1px solid $color-text;
+  border-radius: 4px;
+  //color: $color-text;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+svg {
+  display: block;
+}

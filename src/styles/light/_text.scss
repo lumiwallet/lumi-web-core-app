@@ -1,0 +1,43 @@
+h1 {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: $semi-bold-font-weight;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 111%;
+  font-weight: $bold-font-weight;
+}
+
+h3 {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: $bold-font-weight;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-black;
+}
+
+.error {
+  margin: 24px 0 16px;
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-error;
+}
+
+.link, a {
+  font-size: 14px;
+  line-height: 17px;
+  color: $color-light-blue;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
