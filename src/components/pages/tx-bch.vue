@@ -1,5 +1,5 @@
 <template lang="pug">
-  page(title="BTC transaction")
+  page(title="BCH transaction")
     .tx-page
       .group
         .group__head
@@ -24,16 +24,16 @@
                   .item__value {{ item.address }}
                 .item__row
                   .item__title Value
-                  .item__value {{ item.value }}
+                  .item__value {{ item.satoshis }}
                 .item__row
                   .item__title Output N
-                  .item__value {{ item.n }}
+                  .item__value {{ item.outputIndex }}
                 .item__row
                   .item__title Script
                   .item__value {{ item.script }}
                 .item__row
                   .item__title Hash
-                  .item__value {{ item.hash }}
+                  .item__value {{ item.txId }}
                 .item__row
                   .item__title Key (WIF)
                   .item__value {{ item.key }}
@@ -60,7 +60,7 @@
                   .item__value {{ item.address }}
                 .item__row
                   .item__title Value
-                  .item__value {{ item.value }}
+                  .item__value {{ item.satoshis }}
             .msg.item__value(v-else) No outputs
           .group-row
             error(:show="!!error") {{ error }}
@@ -72,8 +72,8 @@
 
 <script>
   import page               from '@/components/partials/page'
-  import addInputComponent  from '@/components/partials/BTC/addBtcInput'
-  import addOutputComponent from '@/components/partials/BTC/addBtcOutput'
+  import addInputComponent  from '@/components/partials/BCH/addBchInput'
+  import addOutputComponent from '@/components/partials/BCH/addBchOutput'
   import modal              from '@/components/ui/modal'
   import tx                 from '@/components/partials/tx'
   import error              from '@/components/ui/error'
@@ -144,8 +144,8 @@
       async makeTx () {
         if (this.validate()) {
           this.error = ''
-          let txData = await this.$store.dispatch('makeRawBtcTx', this.tx)
-          
+          let txData = await this.$store.dispatch('makeRawBchTx', this.tx)
+          console.log(txData)
           if (txData && txData.hasOwnProperty('hash') && txData.hasOwnProperty('tx')) {
             this.rawTx = txData
             this.showModal = true

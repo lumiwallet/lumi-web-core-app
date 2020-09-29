@@ -16,6 +16,8 @@
           router-link(to="tx-btc").link BTC transaction
         .links__item
           router-link(to="tx-eth").link ETH transaction
+        .links__item
+          router-link(to="tx-bch").link BCH transaction
     .links
       .links__head
         h3 More

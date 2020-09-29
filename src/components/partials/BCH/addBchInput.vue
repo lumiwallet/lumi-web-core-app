@@ -1,20 +1,20 @@
 <template lang="pug">
   .add-input
     .add-input__row
-      label Legacy bitcoin address
-      input(v-model="input.address" type="text" placeholder="Enter bitcoin address")
+      label Legacy or CashAddr Bitcoin Cash address
+      input(v-model="input.address" type="text" placeholder="Enter address")
     .add-input__row
       label Amount in satoshi
-      input(v-model="input.value" type="text" placeholder="0")
+      input(v-model="input.satoshis" type="text" placeholder="0")
     .add-input__row
       label Output N
-      input(v-model="input.n" type="text" placeholder="0")
+      input(v-model="input.outputIndex" type="text" placeholder="0")
     .add-input__row
       label Script data (hex)
       input(v-model="input.script" type="text" placeholder="Enter hex")
     .add-input__row
-      label Transaction hash
-      input(v-model="input.hash" type="text" placeholder="Enter hash")
+      label Transaction hash (txid)
+      input(v-model="input.txId" type="text" placeholder="Enter hash")
     .add-input__row
       label Private key (WIF)
       input(v-model="input.key" type="text" placeholder="Enter private key")
@@ -27,7 +27,7 @@
   import error from '@/components/ui/error'
   
   export default {
-    name: 'add-input',
+    name: 'add-bch-input',
     components: {
       error
     },
@@ -40,11 +40,11 @@
     data () {
       return {
         input: {
+          satoshis: '',
           address: '',
-          value: '',
-          n: '',
+          outputIndex: '',
           script: '',
-          hash: '',
+          txId: '',
           key: ''
         },
         error: null

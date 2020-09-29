@@ -54,6 +54,9 @@
                 .info-row__title Address BTC
                 .info-row__value {{ item.btcAddress }}
               .info-row
+                .info-row__title Address BCH
+                .info-row__value {{ item.bchAddress }}
+              .info-row
                 .info-row__title Address ETH
                 .info-row__value {{ item.ethAddress }}
               .info-row

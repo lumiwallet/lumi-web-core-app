@@ -5,7 +5,7 @@
       input(v-model="output.address" type="text" placeholder="Enter bitcoin address")
     .add-input__row
       label Amount in satoshi
-      input(v-model="output.value" type="text" placeholder="0")
+      input(v-model="output.satoshis" type="text" placeholder="0")
     .add-input__row
       error(:show="!!error") {{ error }}
       button(@click="addOutput") {{ action }} output
@@ -15,7 +15,7 @@
   import error from '@/components/ui/error'
   
   export default {
-    name: 'add-output',
+    name: 'add-bch-output',
     components: {
       error
     },
@@ -29,7 +29,7 @@
       return {
         output: {
           address: '',
-          value: '',
+          satoshis: '',
           id: ''
         },
         error: null

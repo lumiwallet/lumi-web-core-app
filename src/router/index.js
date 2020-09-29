@@ -1,13 +1,14 @@
-import Vue from 'vue'
+import Vue    from 'vue'
 import Router from 'vue-router'
 
-import Home from '@/components/pages/home'
+import Home   from '@/components/pages/home'
 import Create from '@/components/pages/create'
 import Import from '@/components/pages/import'
-import About from '@/components/pages/about'
-import Info from '@/components/pages/info'
-import txBTC from '@/components/pages/tx-btc'
-import txETH from '@/components/pages/tx-eth'
+import About  from '@/components/pages/about'
+import Info   from '@/components/pages/info'
+import txBTC  from '@/components/pages/tx-btc'
+import txETH  from '@/components/pages/tx-eth'
+import txBCH  from '@/components/pages/tx-bch'
 
 Vue.use(Router)
 
@@ -22,17 +23,17 @@ export default new Router({
     {
       path: '/create',
       name: 'create',
-      component: Create,
+      component: Create
     },
     {
       path: '/import',
       name: 'import',
-      component: Import,
+      component: Import
     },
     {
       path: '/about',
       name: 'about',
-      component: About,
+      component: About
     },
     {
       path: '/info',
@@ -51,6 +52,11 @@ export default new Router({
       path: '/tx-eth',
       name: 'tx-eth',
       component: txETH
+    },
+    {
+      path: '/tx-bch',
+      name: 'tx-bch',
+      component: txBCH
     }
   ]
 })
