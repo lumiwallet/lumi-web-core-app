@@ -113,7 +113,7 @@
 <style lang="scss" scoped>
   .info-row {
     display: flex;
-    max-width: 700px;
+    max-width: 720px;
     margin-bottom: 16px;
     
     &:last-child {

@@ -145,7 +145,7 @@
         if (this.validate()) {
           this.error = ''
           let txData = await this.$store.dispatch('makeRawBchTx', this.tx)
-          console.log(txData)
+          
           if (txData && txData.hasOwnProperty('hash') && txData.hasOwnProperty('tx')) {
             this.rawTx = txData
             this.showModal = true

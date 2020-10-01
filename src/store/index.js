@@ -1,11 +1,8 @@
-import Vue          from 'vue'
-import Vuex         from 'vuex'
-import router       from '@/router'
-import errors       from '@/store/errors'
-import Wallet       from 'lumi-web-core'
-import * as bchaddr from 'bchaddrjs'
-
-const toCashAddress = bchaddr.toCashAddress
+import Vue    from 'vue'
+import Vuex   from 'vuex'
+import router from '@/router'
+import errors from '@/store/errors'
+import Wallet from 'lumi-web-core'
 
 Vue.use(Vuex)
 
@@ -45,14 +42,7 @@ export default new Vuex.Store({
       state.loading = false
     },
     async getChildNodes ({state}, data) {
-      const res = await state.WALLET.getChildNodes(data)
-			
-			res.list = res.list.map(item => {
-				item.bchAddress = toCashAddress(item.btcAddress)
-				
-				return item
-			})
-			return res
+      return await state.WALLET.getChildNodes(data)
     },
     async makeRawBtcTx ({state}, data) {
       state.WALLET = new Wallet()
