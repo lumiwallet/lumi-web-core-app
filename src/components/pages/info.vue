@@ -51,11 +51,17 @@
                 .info-row__title Path
                 .info-row__value {{ item.path }}
               .info-row
-                .info-row__title Address BTC
-                .info-row__value {{ item.btcAddress }}
+                .info-row__title Address BTC (P2PKH)
+                .info-row__value {{ item.p2pkhAddress }}
+              .info-row
+                .info-row__title Address BTC (P2WPKH)
+                .info-row__value {{ item.p2wpkhAddress }}
               .info-row
                 .info-row__title Address BCH
                 .info-row__value {{ item.bchAddress }}
+              .info-row
+                .info-row__title Address BTCV
+                .info-row__value {{ item.btcvAddress }}
               .info-row
                 .info-row__title Address ETH
                 .info-row__value {{ item.ethAddress }}
@@ -98,7 +104,14 @@
         let data = {
           path: this.path,
           from: this.from,
-          to: this.to
+          to: this.to,
+          coins: [
+            {coin: 'BTC', type: 'p2pkh'},
+            {coin: 'BTC', type: 'p2wpkh'},
+            {coin: 'ETH', type: 0},
+            {coin: 'BCH'},
+            {coin: 'BTCV'}
+          ]
         }
         
         this.info = await this.$store.dispatch('getChildNodes', data)
@@ -113,7 +126,7 @@
 <style lang="scss" scoped>
   .info-row {
     display: flex;
-    max-width: 720px;
+    max-width: 730px;
     margin-bottom: 16px;
     
     &:last-child {
