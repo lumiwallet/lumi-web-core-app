@@ -18,6 +18,8 @@
           router-link(to="tx-eth").link ETH transaction
         .links__item
           router-link(to="tx-bch").link BCH transaction
+        .links__item
+          router-link(to="tx-doge").link DOGE transaction
     .links
       .links__head
         h3 More

@@ -9,6 +9,7 @@ import Info   from '@/components/pages/info'
 import txBTC  from '@/components/pages/tx-btc'
 import txETH  from '@/components/pages/tx-eth'
 import txBCH  from '@/components/pages/tx-bch'
+import txDOGE from '@/components/pages/tx-doge'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/tx-bch',
       name: 'tx-bch',
       component: txBCH
+    },
+    {
+      path: '/tx-doge',
+      name: 'tx-doge',
+      component: txDOGE
     }
   ]
 })

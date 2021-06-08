@@ -58,6 +58,11 @@ export default new Vuex.Store({
       state.WALLET = new Wallet()
       
       return state.WALLET.makeRawBchTx(data)
+    },
+    async makeRawDogeTx ({state}, data) {
+      state.WALLET = new Wallet()
+      
+      return state.WALLET.makeRawDogeTx(data)
     }
   },
   getters: {},
