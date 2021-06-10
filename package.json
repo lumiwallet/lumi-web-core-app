@@ -25,7 +25,8 @@
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "lumi-web-core": "https://github.com/lumiwallet/lumi-web-core.git#bnb-support"
   },
   "eslintConfig": {
     "root": true,

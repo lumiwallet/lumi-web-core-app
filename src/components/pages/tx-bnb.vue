@@ -49,7 +49,7 @@
   import tx                 from '@/components/partials/tx'
   import error              from '@/components/ui/error'
   import errorModal         from '@/components/ui/errorModal'
-  import BinanceTx          from 'lumi-web-core'
+  import {BinanceTx}          from 'lumi-web-core'
   
   export default {
     name: 'tx-bnb',
@@ -63,8 +63,20 @@
     data () {
       return {
         tx: {
-          params: {address:'',account_number: '', balance: null, privateKey: '', publicKey:'', sequence: null, },
-          txParams: {addressTo: '', amount: null, fee: null, memo:''}
+          params: {
+            account_number: null,
+            address: '',
+            balance: null,
+            privateKey: '',
+            publicKey: '',
+            sequence: null
+          },
+          txParams: {
+            addressTo: '',
+            amount: null,
+            fee: null,
+            memo: ''
+          }
         },
         showModal: false,
         rawTx: {
@@ -78,7 +90,7 @@
       validate () {
         let isValid = true
         Object.keys(this.tx.params).map(item=>{
-          if (this.tx.params[item]==='' || !this.tx.params[item]) {
+          if (this.tx.params[item]==='' || !this.tx.params[item] ) {
             isValid=false
           }
         })
@@ -90,11 +102,14 @@
         return isValid
       },
       async makeTx () {
-        console.log(this.validate())
         if (this.validate()) {
+          this.tx.params.account_number = parseInt(this.tx.params.account_number)
+          this.tx.params.balance = parseFloat(this.tx.params.balance)
+          this.tx.params.sequence = parseInt(this.tx.params.sequence)
+          this.tx.txParams.amount = parseFloat(this.tx.txParams.amount)
+          this.tx.txParams.fee = parseFloat(this.tx.txParams.fee)
           this.error = ''
           let tx = new BinanceTx(this.tx.params)
-          console.log(tx)
           const rawTx = tx.make(this.tx.txParams).serialize()
           const hash = tx.getHash()
           

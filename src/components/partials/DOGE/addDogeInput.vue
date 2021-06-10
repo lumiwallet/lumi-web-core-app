@@ -69,7 +69,7 @@
           }
         }
         this.input.index = parseInt(this.input.index)
-        this.input.value = parseInt(this.input.value)
+        this.input.value = parseFloat(this.input.value)
         this.error = null
         return true
       },
