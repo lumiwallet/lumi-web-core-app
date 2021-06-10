@@ -20,6 +20,8 @@
           router-link(to="tx-bch").link BCH transaction
         .links__item
           router-link(to="tx-doge").link DOGE transaction
+        .links__item
+          router-link(to="tx-bnb").link BNB transaction
     .links
       .links__head
         h3 More

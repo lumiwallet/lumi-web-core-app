@@ -65,7 +65,7 @@
           .group-row
             error(:show="!!error") {{ error }}
             button(@click="makeTx") Build
-    modal(v-model="showModal" title="BTC transaction")
+    modal(v-model="showModal" title="DOGE transaction")
       tx(:hash="rawTx.hash" :tx="rawTx.tx")
     errorModal(title="Transaction failed")
 </template>
@@ -144,7 +144,6 @@
       async makeTx () {
         if (this.validate()) {
           this.error = ''
-          this.tx.index=parseInt(this.tx.index)
           let txData = await this.$store.dispatch('makeRawDogeTx', this.tx)
           
           if (txData && txData.hasOwnProperty('hash') && txData.hasOwnProperty('tx')) {
