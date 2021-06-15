@@ -67,6 +67,25 @@ Output includes:
 
 After adding inputs and outputs click the `Build` button to generate the transaction. If successful, a popup will appear with the transaction hash and raw transaction data. If not, a popup will appear with information about the error.
 
+### DOGE transaction
+To make a dogecoin transaction, you need to add inputs and outputs. Input includes:
+- dogecoin address
+- input amount in satoshi (integer)
+- output N (integer)
+- script data in hex
+- transaction hash
+- private key for the current input in WIF format
+
+**Note**: All fields are required.
+
+Output includes:
+- dogecoin address
+- amount in satoshi (integer)
+
+**Note**: All fields are required.
+
+After adding inputs and outputs click the `Build` button to generate the transaction. If successful, a popup will appear with the transaction hash and raw transaction data. If not, a popup will appear with information about the error.
+
 ## Requirements
 Node version >= 10.19.0
 
