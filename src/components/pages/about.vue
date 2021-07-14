@@ -3,7 +3,7 @@
     .about
       .about__top
         .about__block
-          .about__intro The LumiCore library is an implementation of tools for working with Bitcoin, Bitcoin Cash, Ethereum, Dogecoin and Binance Coin. It allows to run the private keys derivation tree following the BIP44 standard and sign transactions. LumiCore is available under the MIT license.
+          .about__intro The LumiCore library is an implementation of tools for working with Bitcoin, Bitcoin Cash, Ethereum, Dogecoin, Litecoin and Binance Coin. It allows to run the private keys derivation tree following the BIP44 standard and sign transactions. LumiCore is available under the MIT license.
         .about__block
           .about__title Our website
           .about__text
