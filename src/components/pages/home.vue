@@ -22,6 +22,8 @@
           router-link(to="tx-doge").link DOGE transaction
         .links__item
           router-link(to="tx-bnb").link BNB transaction
+        .links__item
+          router-link(to="tx-ltc").link LTC transaction
     .links
       .links__head
         h3 More
