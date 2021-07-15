@@ -2,7 +2,7 @@
   page(title="BTC transaction")
     template(v-slot:switcher)
       .btc-switcher
-        switcher(@toggleSwitch="toggleSwitch()" secondLabel="Segwit" firstLabel="Legacy" :isSegwit="isSegwit")
+        switcher(@toggleSwitch="toggleSwitch()" secondLabel="Legacy" firstLabel="Segwit" :isSegwit="isSegwit")
     .tx-page
       .group
         .group__head
@@ -30,11 +30,11 @@
                   .item__title Value
                   .item__value {{ item.value }}
                 .item__row
-                  .item__title Output N
-                  .item__value {{ item.n }}
-                .item__row
-                  .item__title Script
-                  .item__value {{ item.script }}
+                  .item__title Index
+                  .item__value {{ item.index }}
+                .item__row(v-if="!isSegwit")
+                  .item__title Raw Tx
+                  .item__value {{ item.tx }}
                 .item__row
                   .item__title Hash
                   .item__value {{ item.hash }}
@@ -123,6 +123,14 @@
     methods: {
       toggleSwitch() {
         this.isSegwit = !this.isSegwit
+        this.tx = {
+          inputs: [],
+          outputs: []
+        }
+        this.rawTx = {
+          hash: null,
+          tx: null
+        }
       },
       toggleShowModal (type, action = 'Add') {
         this.show[type] = !this.show[type]
@@ -155,6 +163,7 @@
       async makeTx () {
         if (this.validate()) {
           this.error = ''
+
           let txData = await this.$store.dispatch('makeRawBtcTx', this.tx)
           
           if (txData && txData.hasOwnProperty('hash') && txData.hasOwnProperty('tx')) {

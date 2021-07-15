@@ -1,7 +1,7 @@
 <template lang="pug">
   .add-input
     .add-input__row
-      label Legacy or CashAddr Bitcoin Cash address
+      label {{isSegwit? 'Segwit': 'Legacy'}} address
       input(v-model="output.address" type="text" placeholder="Enter bitcoin address")
     .add-input__row
       label Amount in satoshi
@@ -20,6 +20,10 @@
       error
     },
     props: {
+      isSegwit: {
+        type: Boolean,
+        default: true
+      },
       action: {
         type: String,
         default: 'Add'
@@ -53,6 +57,7 @@
             return false
           }
         }
+        this.output.value = parseInt(this.output.value)
         this.error = null
         return true
       },

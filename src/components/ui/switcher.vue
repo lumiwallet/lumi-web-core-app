@@ -1,9 +1,9 @@
 <template lang="pug">
 .switcher-container
-  p(:class="{secondary: !value}") {{ firstLabel }}
+  p(:class="{secondary: !isSegwit}") {{ firstLabel }}
   .switcher-input
-    input(type="checkbox" class="toggle" v-model="isSegwit" @change="$emit('toggleSwitch', !value)")
-  p(:class="{secondary: value}") {{secondLabel}}
+    input(type="checkbox" class="toggle" :value="isSegwit" @change="$emit('toggleSwitch')")
+  p(:class="{secondary: isSegwit}") {{secondLabel}}
 </template>
 
 <script>
