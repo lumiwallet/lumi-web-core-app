@@ -1,17 +1,11 @@
 <template lang="pug">
   .add-input
     .add-input__row
-      label {{isSegwit? 'Segwit': 'Legacy'}} bitcoin address
-      input(v-model="input.address" type="text" placeholder="Enter bitcoin address" )
-    .add-input__row
       label Amount in satoshi
       input(v-model="input.value" type="text" placeholder="0")
     .add-input__row
       label Index
       input(v-model="input.index" type="text" placeholder="0")
-    .add-input__row(v-if="!isSegwit")
-      label Raw Tx
-      input(v-model="input.tx" type="text" placeholder="Enter hex")
     .add-input__row
       label Transaction hash
       input(v-model="input.hash" type="text" placeholder="Enter hash")
@@ -27,7 +21,7 @@
   import error from '@/components/ui/error'
   
   export default {
-    name: 'add-btc-input',
+    name: 'add-btcv-input',
     components: {
       error
     },
@@ -35,19 +29,13 @@
       action: {
         type: String,
         default: 'Add'
-      },
-      isSegwit: {
-        type: Boolean,
-        default: true
       }
     },
     data () {
       return {
         input: {
-          address: '',
-          value: '',
-          index: '',
-          tx: '',
+          value: null,
+          index: null,
           hash: '',
           key: ''
         },
@@ -66,11 +54,6 @@
         }
       },
       validate () {
-        const isAddressSegwit = this.input.address.substring(0, 3) === 'bc1'
-        if ((isAddressSegwit && !this.isSegwit) || (!isAddressSegwit && this.isSegwit)) {
-          this.error = `You address is BTC ${isAddressSegwit? 'Segwit': 'Legacy'}, but the form is for BTC ${this.isSegwit? 'Segwit': 'Legacy'}`
-          return false
-        }
         for (let key in this.input) {
           if (!this.input[key] && key !== 'id') {
             this.error = 'All fields are required'
@@ -87,9 +70,6 @@
       }
     },
     mounted () {
-      if (this.isSegwit) {
-        delete this.input.tx;
-      }
       this.$root.$on('edit_inputs', data => {
         this.input = data
       })

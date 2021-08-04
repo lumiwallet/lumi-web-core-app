@@ -1,8 +1,5 @@
 <template lang="pug">
-  page(title="BTC transaction")
-    template(v-slot:switcher)
-      .btc-switcher
-        switcher(@toggleSwitch="toggleSwitch()" secondLabel="Legacy" firstLabel="Segwit" :isSegwit="isSegwit")
+  page(title="BTCV transaction")
     .tx-page
       .group
         .group__head
@@ -14,7 +11,6 @@
             :center="false"
             :showCancel="true")
             addInputComponent(@add_inputs="addData"
-              :isSegwit="isSegwit"
               @update_inputs="updateData"
               :action="actions.inputs")
           .group-row
@@ -24,17 +20,11 @@
                   .item__del(@click="deleteData('inputs', item.id)") Delete
                   .item__edit(@click="editData('inputs', i)") Edit
                 .item__row
-                  .item__title Address
-                  .item__value {{ item.address }}
-                .item__row
                   .item__title Value
                   .item__value {{ item.value }}
                 .item__row
                   .item__title Index
                   .item__value {{ item.index }}
-                .item__row(v-if="!isSegwit")
-                  .item__title Raw Tx
-                  .item__value {{ item.tx }}
                 .item__row
                   .item__title Hash
                   .item__value {{ item.hash }}
@@ -51,7 +41,6 @@
             :title="`${actions.outputs} output`"
             :showCancel="true")
             addOutputComponent(@add_outputs="addData"
-              :isSegwit="isSegwit"
               @update_outputs="updateData"
               :action="actions.outputs")
           .group-row.group-row--m-margin
@@ -70,23 +59,22 @@
           .group-row
             error(:show="!!error") {{ error }}
             button(@click="makeTx") Build
-    modal(v-model="showModal" title="BTC transaction")
+    modal(v-model="showModal" title="BTCV transaction")
       tx(:hash="rawTx.hash" :tx="rawTx.tx")
     errorModal(title="Transaction failed")
 </template>
 
 <script>
   import page               from '@/components/partials/page'
-  import addInputComponent  from '@/components/partials/BTC/addBtcInput'
-  import addOutputComponent from '@/components/partials/BTC/addBtcOutput'
+  import addInputComponent  from '@/components/partials/BTCV/addBtcvInput'
+  import addOutputComponent from '@/components/partials/BTCV/addBtcvOutput'
   import modal              from '@/components/ui/modal'
   import tx                 from '@/components/partials/tx'
   import error              from '@/components/ui/error'
   import errorModal         from '@/components/ui/errorModal'
-  import switcher           from '@/components/ui/switcher'
-
+  
   export default {
-    name: 'tx-btc',
+    name: 'tx-btcv',
     components: {
       page,
       addInputComponent,
@@ -94,12 +82,10 @@
       modal,
       tx,
       error,
-      errorModal,
-      switcher
+      errorModal
     },
     data () {
       return {
-        isSegwit: true,
         tx: {
           inputs: [],
           outputs: []
@@ -121,17 +107,6 @@
       }
     },
     methods: {
-      toggleSwitch() {
-        this.isSegwit = !this.isSegwit
-        this.tx = {
-          inputs: [],
-          outputs: []
-        }
-        this.rawTx = {
-          hash: null,
-          tx: null
-        }
-      },
       toggleShowModal (type, action = 'Add') {
         this.show[type] = !this.show[type]
         this.actions[type] = action
@@ -163,8 +138,7 @@
       async makeTx () {
         if (this.validate()) {
           this.error = ''
-
-          let txData = await this.$store.dispatch('makeRawBtcTx', this.tx)
+          let txData = await this.$store.dispatch('makeRawBtcvTx', this.tx)
           
           if (txData && txData.hasOwnProperty('hash') && txData.hasOwnProperty('tx')) {
             this.rawTx = txData

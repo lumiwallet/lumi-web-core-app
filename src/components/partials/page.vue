@@ -10,6 +10,7 @@
         .back__text Back
     .page__head
       h1 {{ title }}
+      slot(name="switcher")
     .page__body
       slot
 </template>
@@ -54,6 +55,10 @@
     &__head {
       margin-bottom: 32px;
       text-align: left;
+      display: flex;
+      max-width: 560px;
+      justify-content: space-between;
+      align-items: center;
     }
     
     &__body {

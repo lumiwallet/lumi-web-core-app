@@ -1,8 +1,8 @@
 <template lang="pug">
   .add-input
     .add-input__row
-      label {{isSegwit? 'Segwit': 'Legacy'}} address
-      input(v-model="output.address" type="text" placeholder="Enter bitcoin address")
+      label Litecoin address
+      input(v-model="output.address" type="text" placeholder="Enter litecoin address")
     .add-input__row
       label Amount in satoshi
       input(v-model="output.value" type="text" placeholder="0")
@@ -15,15 +15,11 @@
   import error from '@/components/ui/error'
   
   export default {
-    name: 'add-btc-output',
+    name: 'add-ltc-output',
     components: {
       error
     },
     props: {
-      isSegwit: {
-        type: Boolean,
-        default: true
-      },
       action: {
         type: String,
         default: 'Add'

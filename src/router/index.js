@@ -10,7 +10,9 @@ import txBTC  from '@/components/pages/tx-btc'
 import txETH  from '@/components/pages/tx-eth'
 import txBCH  from '@/components/pages/tx-bch'
 import txDOGE from '@/components/pages/tx-doge'
+import txLTC  from '@/components/pages/tx-ltc'
 import txBNB  from '@/components/pages/tx-bnb'
+import txBTCV from '@/components/pages/tx-btcv'
 
 Vue.use(Router)
 
@@ -64,6 +66,16 @@ export default new Router({
       path: '/tx-doge',
       name: 'tx-doge',
       component: txDOGE
+    },
+    {
+      path: '/tx-btcv',
+      name: 'tx-btcv',
+      component: txBTCV
+    },
+    {
+      path: '/tx-ltc',
+      name: 'tx-ltc',
+      component: txLTC
     },
     {
       path: '/tx-bnb',
