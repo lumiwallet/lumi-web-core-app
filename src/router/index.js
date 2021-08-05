@@ -13,6 +13,7 @@ import txDOGE from '@/components/pages/tx-doge'
 import txLTC  from '@/components/pages/tx-ltc'
 import txBNB  from '@/components/pages/tx-bnb'
 import txBTCV from '@/components/pages/tx-btcv'
+import txXDC  from '@/components/pages/tx-xdc'
 
 Vue.use(Router)
 
@@ -81,6 +82,11 @@ export default new Router({
       path: '/tx-bnb',
       name: 'tx-bnb',
       component: txBNB
+    },
+    {
+      path: '/tx-xdc',
+      name: 'tx-xdc',
+      component: txXDC
     }
   ]
 })

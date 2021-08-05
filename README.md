@@ -86,6 +86,18 @@ Output includes:
 
 After adding inputs and outputs click the `Build` button to generate the transaction. If successful, a popup will appear with the transaction hash and raw transaction data. If not, a popup will appear with information about the error.
 
+### XDC transaction
+To make a Xinfin transaction you need to fill in the following fields:
+- nonce (integer)
+- transaction value in WEI (integer)
+- to - recipient address
+- gas price (integer)
+- gas limit (integer)
+- private wallet key starting with '0x'
+- chain id (integer)
+
+**Note**: These fields are required.
+
 ### LTC transaction
 To make a litecoin transaction, you need to add inputs and outputs. Input includes:
 - litecoin address

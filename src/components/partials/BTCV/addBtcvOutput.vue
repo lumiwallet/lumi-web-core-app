@@ -2,7 +2,7 @@
   .add-input
     .add-input__row
       label Bitcoin Vault address
-      input(v-model="output.address" type="text" placeholder="Enter dogecoin address")
+      input(v-model="output.address" type="text" placeholder="Enter btcv address")
     .add-input__row
       label Amount in satoshi
       input(v-model="output.value" type="text" placeholder="0")
