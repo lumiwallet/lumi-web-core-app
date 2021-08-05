@@ -26,6 +26,8 @@
           router-link(to="tx-ltc").link LTC transaction
         .links__item
           router-link(to="tx-btcv").link BTCV transaction
+        .links__item
+          router-link(to="tx-xdc").link XDC transaction
     .links
       .links__head
         h3 More
